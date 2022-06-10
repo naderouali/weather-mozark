@@ -1,16 +1,26 @@
 import React from 'react';
 import './style.app.css';
 
+// THE API PARAMETERS
 const api = {
   key: "b25b6a800dfd115c346f8eee209124ce",
   url: "https://api.openweathermap.org/data/2.5/"
 }
 
+/**
+ * App: The application main component
+ * @return {JSX.Element} The JSX Code for app
+ */
+
 function App() {
 
+  // USESTATES
   const [query, setQuery] = React.useState('');
   const [weather, setWeather] = React.useState('');
 
+  // THE SEARCH FUNCTION
+  // IT TAKES THE API LINK AS INPUT
+  // IT RETURNS JSON FILE WITH WEATHER DATA
   const handleSearch = (e) => {
     e.preventDefault();
     if (query) {
@@ -20,6 +30,9 @@ function App() {
     }
   }
 
+  // THE DATEBUILDER FUNCTION
+  // IT TAKES A DATE AS AN INPUT
+  // IT RETURNS SPLITTED DATE
   const dateBuilder = (d) => {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -33,9 +46,11 @@ function App() {
   }
 
 
+  // THE RETURNED JSX ELEMENT
   return (
     <div className="app">
       <main>
+        {/* SEARCH */}
         <div className="search-bar">
           <input className="search-box" type="text" placeholder="Search city ..."
             onChange={(e) => setQuery(e.target.value)} value={query}>
@@ -46,6 +61,7 @@ function App() {
         </div>
 
         {(typeof weather.main != "undefined") ? (
+          // WEATHER RESULT DATA
           <div>
             <div className="location-box">
               <h2 className="location">{weather.name}, {weather.sys.country}</h2>
@@ -61,12 +77,13 @@ function App() {
             </div>
           </div>
         ) : (
+          // HOME PAGE
           <div>
             <div className="welcome-box">
               <div className="welcome-text">
                 <h1>welcome</h1>
                 <p>
-                  Weather App
+                  Mozark Weather App
                 </p>
               </div>
             </div>
