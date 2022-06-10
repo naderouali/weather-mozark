@@ -10,6 +10,10 @@ To run this project:
 
 - Run `npm test` in project directory to execute Jest test.
 
+# About the project
+
+Mozark weather app is a simple weather app that gives you information about the weather based on the entered location.
+
 # Getting Started with Mozark weather app
 
 - This project was created with native Reactjs framework, which is suitable for small apps like this. Other frameworks can be better on large scale apps, but harder to set up for the first time so it will take more time.
